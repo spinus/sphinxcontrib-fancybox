@@ -119,12 +119,14 @@ all <cite>fancybox</cite> directives.</p>
 <div class="section" id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>handling local files (not only remotes) (DONE)</li>
 <li>option to copying remote graphics as statics</li>
-<li>fallback for non html output</li>
+<li>fallback for non html output (DONE)</li>
 <li>nested parsing fix</li>
 <li>JS should be handled only once, not on every image node</li>
 <li>width and height parameters (currently the thumbnail is set to 100x100px) (DONE)</li>
 <li>get default thumbnail size from config (DONE)</li>
+<li>generate thumbnails for big images</li>
 </ul>
 </div>
 <div class="section" id="questions-and-suggestions">
@@ -141,7 +143,7 @@ github message.</p>
 <img src="http://creoeninternet.com/wp-content/uploads/2011/06/wikipedia.png" width="150px" height="150px" />
 <script type="text/javascript">
     $(document).ready(function() {
-        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedIn": 600, "transitionIn": "elastic", "speedOut": 200});
+        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedOut": 200, "transitionIn": "elastic", "speedIn": 600});
     });
 </script>
 </a></div>
@@ -151,17 +153,17 @@ github message.</p>
 <img src="_images/img.jpg" width="300px" height="100px" />
 <script type="text/javascript">
     $(document).ready(function() {
-        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedIn": 600, "transitionIn": "elastic", "speedOut": 200});
+        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedOut": 200, "transitionIn": "elastic", "speedIn": 600});
     });
 </script>
 </a></div>
 <div class="section" id="fancybox-with-additional-class">
 <h2>2 - fancybox with additional class<a class="headerlink" href="#fancybox-with-additional-class" title="Permalink to this headline">¶</a></h2>
-<a alt="with css class" class="fancybox someclass" href="_images/img.jpg" rel="default" title="with css class">
+<a alt="with css class" class="someclass fancybox someclass" href="_images/img.jpg" rel="default" title="with css class">
 <img src="_images/img.jpg" width="150px" height="150px" />
 <script type="text/javascript">
     $(document).ready(function() {
-        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedIn": 600, "transitionIn": "elastic", "speedOut": 200});
+        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedOut": 200, "transitionIn": "elastic", "speedIn": 600});
     });
 </script>
 </a></div>
@@ -176,7 +178,7 @@ plaintext</p>
 <img src="_images/img.jpg" width="150px" height="150px" />
 <script type="text/javascript">
     $(document).ready(function() {
-        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedIn": 600, "transitionIn": "elastic", "speedOut": 200});
+        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedOut": 200, "transitionIn": "elastic", "speedIn": 600});
     });
 </script>
 </a></div>
@@ -190,7 +192,7 @@ plaintext</p>
 <img src="_images/img.jpg" width="150px" height="150px" />
 <script type="text/javascript">
     $(document).ready(function() {
-        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedIn": 600, "transitionIn": "elastic", "speedOut": 200});
+        $("a.fancybox").fancybox({"overlayShow": "false", "transitionOut": "elastic", "speedOut": 200, "transitionIn": "elastic", "speedIn": 600});
     });
 </script>
 </a></div>
