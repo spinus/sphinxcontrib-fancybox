@@ -223,4 +223,5 @@ def setup(app):
 
     app.connect('builder-inited', add_stylesheet)
     app.connect('builder-inited', add_javascript)
+    app.warn('WTF????')
     app.connect('build-finished', copy_stylesheet)
