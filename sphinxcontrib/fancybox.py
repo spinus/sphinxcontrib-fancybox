@@ -154,10 +154,11 @@ def add_javascript(app):
 
 
 def copy_stylesheet(app, exception=None):
-    app.warn('What the heck??')
-    if app.builder.name != 'html' or exception:
-        return
     on_rtd = (os.environ.get('READTHEDOCS', None) == 'True')
+
+    app.warn('What the heck??')
+    if not on_rtd and (app.builder.name != 'html' or exception):
+        return
 
     #TODO: change _static to variable from config (something like that exists?)
     if on_rtd:
