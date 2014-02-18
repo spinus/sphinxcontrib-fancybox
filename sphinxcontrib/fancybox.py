@@ -164,6 +164,7 @@ def copy_stylesheet(app, exception):
     else:
         base_path = os.path.join(app.builder.outdir, '_static')
     path = os.path.abspath(base_path, 'fancybox')
+    app.warn('on rtd? %s' % on_rtd)
 
     if not os.path.exists(path):
         os.makedirs(path)
