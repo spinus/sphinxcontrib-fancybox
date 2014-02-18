@@ -64,7 +64,7 @@ class FancyboxDirective(Directive):
         'alt': str,
 
         'width': directives.length_or_percentage_or_unitless,
-        'height': directives.length_or_unitless,
+        'height': directives.length_or_percentage_or_unitless,
     }
 
     def run(self):
