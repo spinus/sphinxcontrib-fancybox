@@ -153,7 +153,7 @@ def add_javascript(app):
         app.add_javascript(FILE)
 
 
-def copy_stylesheet(app, exception):
+def copy_stylesheet(app, exception=None):
     if app.builder.name != 'html' or exception:
         return
     on_rtd = (os.environ.get('READTHEDOCS', None) == 'True')
