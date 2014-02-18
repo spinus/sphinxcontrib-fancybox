@@ -156,12 +156,15 @@ def add_javascript(app):
 def copy_stylesheet(app, exception):
     if app.builder.name != 'html' or exception:
         return
-    import os
+    on_rtd = (os.environ.get('READTHEDOCS', None) == 'True')
+
     #TODO: change _static to variable from config (something like that exists?)
-    path = os.path.abspath(os.path.join(app.builder.outdir,
-                                        '_static',
-                                        'fancybox')
-                          )
+    if on_rtd:
+        base_path = os.path.join(app.builder.srcdir, '_static')
+    else:
+        base_path = os.path.join(app.builder.outdir, '_static')
+    path = os.path.abspath(base_path, 'fancybox')
+
     if not os.path.exists(path):
         os.makedirs(path)
 
@@ -169,21 +172,21 @@ def copy_stylesheet(app, exception):
     for FILE in CSS_FILES:
         copyfile(
             os.path.join(os.path.dirname(__file__), FILE),
-            os.path.join(app.builder.outdir, '_static', FILE)
+            os.path.join(base_path, FILE)
         )
     app.info('done')
     app.info('Copying fancybox javascript... ', nonl=True)
     for FILE in JS_FILES:
         copyfile(
             os.path.join(os.path.dirname(__file__), FILE),
-            os.path.join(app.builder.outdir, '_static', FILE)
+            os.path.join(base_path, FILE)
         )
     app.info('done')
     app.info('Copying fancybox images... ', nonl=True)
     for FILE in IMG_FILES:
         copyfile(
             os.path.join(os.path.dirname(__file__), FILE),
-            os.path.join(app.builder.outdir, '_static', FILE)
+            os.path.join(base_path, FILE)
         )
     app.info('done')
 
