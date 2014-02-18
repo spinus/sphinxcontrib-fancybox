@@ -30,32 +30,18 @@ js = r'''
 '''
 
 CSS_FILES = (
-    'fancybox/jquery.fancybox-1.3.4.css',
+    'fancybox/jquery.fancybox.css',
 )
 JS_FILES = (
-    'fancybox/jquery.fancybox-1.3.4.pack.js',
+    'fancybox/jquery.fancybox.pack.js',
 )
 IMG_FILES = (
     'fancybox/blank.gif',
-    'fancybox/fancybox.png',
-    'fancybox/fancybox-x.png',
-    'fancybox/fancybox-y.png',
-    'fancybox/fancy_close.png',
-    'fancybox/fancy_loading.png',
-    'fancybox/fancy_nav_left.png',
-    'fancybox/fancy_nav_right.png',
-    'fancybox/fancy_shadow_e.png',
-    'fancybox/fancy_shadow_ne.png',
-    'fancybox/fancy_shadow_n.png',
-    'fancybox/fancy_shadow_nw.png',
-    'fancybox/fancy_shadow_se.png',
-    'fancybox/fancy_shadow_s.png',
-    'fancybox/fancy_shadow_sw.png',
-    'fancybox/fancy_shadow_w.png',
-    'fancybox/fancy_title_left.png',
-    'fancybox/fancy_title_main.png',
-    'fancybox/fancy_title_over.png',
-    'fancybox/fancy_title_right.png',
+    'fancybox/fancybox_loading.gif',
+    'fancybox/fancybox_loading@2x.gif',
+    'fancybox/fancybox_overlay.png',
+    'fancybox/fancybox_sprite.png',
+    'fancybox/fancybox_sprite@2x.png'
 )
 
 
