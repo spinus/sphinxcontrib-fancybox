@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,11 +10,11 @@
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/fancybox/jquery.fancybox-1.3.4.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fancybox/jquery.fancybox.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -26,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="_static/fancybox/jquery.fancybox.pack.js"></script>
     <link rel="top" title="sphinxcontrib-fancybox 1 documentation" href="#" /> 
   </head>
   <body>
@@ -54,25 +52,31 @@
 </div>
 <div class="section" id="fancybox">
 <h1>Fancybox<a class="headerlink" href="#fancybox" title="Permalink to this headline">¶</a></h1>
-<p>Fancybox is adaptation of <a class="reference external" href="http://fancybox.net/">http://fancybox.net/</a> in version <strong>1.3.4</strong>.</p>
+<p>Fancybox is adaptation of the jQuery plugin <a class="reference external" href="http://fancyapps.com/fancybox">fancybox</a> in version <a href="#id2"><span class="problematic" id="id3">**</span></a>2.1.5*. Note that version
+Fancybox v2 and later are distributed under a
+<a class="reference external" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0</a>
+license.</p>
 <p>Documentation: <a class="reference external" href="http://spinus.github.com/sphinxcontrib-fancybox/">http://spinus.github.com/sphinxcontrib-fancybox/</a></p>
 <p>github: <a class="reference external" href="http://github.com/spinus/sphinxcontrib-fancybox/">http://github.com/spinus/sphinxcontrib-fancybox/</a></p>
 <p>PYPI: <a class="reference external" href="http://pypi.python.org/pypi/sphinxcontrib-fancybox/">http://pypi.python.org/pypi/sphinxcontrib-fancybox/</a></p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Instalation through pip:</p>
-<div class="highlight-python"><pre>pip install sphinxcontrib-fancybox</pre>
+<div class="highlight-python"><div class="highlight"><pre>pip install sphinxcontrib-fancybox
+</pre></div>
 </div>
 <p>or through github:</p>
-<div class="highlight-python"><pre>git clone https://github.com/spinus/sphinxcontrib-fancybox
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/spinus/sphinxcontrib-fancybox
 cd sphinxcontrib-fancybox
-python setup.py install</pre>
+python setup.py install
+</pre></div>
 </div>
 <p>Next, you have to add extension to <cite>conf.py</cite> in your sphinx project.</p>
-<div class="highlight-python"><pre>extensions = [
+<div class="highlight-python"><div class="highlight"><pre>extensions = [
           ...,
-          'sphinxcontrib.fancybox',
-          ...]</pre>
+          &#39;sphinxcontrib.fancybox&#39;,
+          ...]
+</pre></div>
 </div>
 </div>
 <div class="section" id="directives">
@@ -82,25 +86,29 @@ python setup.py install</pre>
 <div><p>Fancybox directive place a thumbnail of picture you selected, and add some
 <cite>fancies</cite>. If you click on image you get fullscreen box with that picture.</p>
 <p>Example:</p>
-<div class="highlight-python"><pre>.. fancybox:: picture.png</pre>
+<div class="highlight-python"><div class="highlight"><pre>.. fancybox:: picture.png
+</pre></div>
 </div>
 <p>By default all images on one page are in the same group (you can navigate
 pressing <cite>next</cite> and <cite>prev</cite> buttons around this group).
 If you want to add picture to another group you have to set <cite>group</cite>
 parameter, like:</p>
-<div class="highlight-python"><pre>.. fancybox:: picture.png
-    :group: group2</pre>
+<div class="highlight-python"><div class="highlight"><pre>.. fancybox:: picture.png
+    :group: group2
+</pre></div>
 </div>
 <p>You can change size of fancybox with &#8216;width&#8217; and &#8216;height&#8217; which are
 passed as you set it:</p>
-<div class="highlight-python"><pre>.. fancybox:: picture.png
+<div class="highlight-python"><div class="highlight"><pre>.. fancybox:: picture.png
     :width: 100%
-    :height: 2em</pre>
+    :height: 2em
+</pre></div>
 </div>
 <p>You can add some description which will be rendered as <cite>title</cite> attribute:</p>
-<div class="highlight-python"><pre>.. fancybox:: http://pictures.tld/picture.png
+<div class="highlight-python"><div class="highlight"><pre>.. fancybox:: http://pictures.tld/picture.png
 
-    Some description</pre>
+    Some description
+</pre></div>
 </div>
 <p>If you not set &#8216;width&#8217; and &#8216;height&#8217;, defaults values are gathered from
 <cite>conf.py</cite>. There are two parameters which you can adjust:</p>
@@ -159,7 +167,7 @@ github message.</p>
 </a></div>
 <div class="section" id="fancybox-with-additional-class">
 <h2>2 - fancybox with additional class<a class="headerlink" href="#fancybox-with-additional-class" title="Permalink to this headline">¶</a></h2>
-<a alt="with css class" class="someclass fancybox someclass" href="_images/img.jpg" rel="default" title="with css class">
+<a alt="with css class" class="someclass fancybox" href="_images/img.jpg" rel="default" title="with css class">
 <img src="_images/img.jpg" width="150px" height="150px" />
 <script type="text/javascript">
     $(document).ready(function() {
@@ -268,7 +276,7 @@ plaintext</p>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Tomek Czyż.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
     </div>
   </body>
 </html>
