@@ -30,32 +30,18 @@ js = r'''
 '''
 
 CSS_FILES = (
-    'fancybox/jquery.fancybox-1.3.4.css',
+    'fancybox/jquery.fancybox.css',
 )
 JS_FILES = (
-    'fancybox/jquery.fancybox-1.3.4.pack.js',
+    'fancybox/jquery.fancybox.pack.js',
 )
 IMG_FILES = (
     'fancybox/blank.gif',
-    'fancybox/fancybox.png',
-    'fancybox/fancybox-x.png',
-    'fancybox/fancybox-y.png',
-    'fancybox/fancy_close.png',
-    'fancybox/fancy_loading.png',
-    'fancybox/fancy_nav_left.png',
-    'fancybox/fancy_nav_right.png',
-    'fancybox/fancy_shadow_e.png',
-    'fancybox/fancy_shadow_ne.png',
-    'fancybox/fancy_shadow_n.png',
-    'fancybox/fancy_shadow_nw.png',
-    'fancybox/fancy_shadow_se.png',
-    'fancybox/fancy_shadow_s.png',
-    'fancybox/fancy_shadow_sw.png',
-    'fancybox/fancy_shadow_w.png',
-    'fancybox/fancy_title_left.png',
-    'fancybox/fancy_title_main.png',
-    'fancybox/fancy_title_over.png',
-    'fancybox/fancy_title_right.png',
+    'fancybox/fancybox_loading.gif',
+    'fancybox/fancybox_loading@2x.gif',
+    'fancybox/fancybox_overlay.png',
+    'fancybox/fancybox_sprite.png',
+    'fancybox/fancybox_sprite@2x.png'
 )
 
 
@@ -78,7 +64,7 @@ class FancyboxDirective(Directive):
         'alt': str,
 
         'width': directives.length_or_percentage_or_unitless,
-        'height': directives.length_or_unitless,
+        'height': directives.length_or_percentage_or_unitless,
     }
 
     def run(self):
@@ -167,15 +153,19 @@ def add_javascript(app):
         app.add_javascript(FILE)
 
 
-def copy_stylesheet(app, exception):
-    if app.builder.name != 'html' or exception:
+def copy_stylesheet(app, exception=None):
+    on_rtd = (os.environ.get('READTHEDOCS', None) == 'True')
+
+    if not on_rtd and (app.builder.name != 'html' or exception):
         return
-    import os
+
     #TODO: change _static to variable from config (something like that exists?)
-    path = os.path.abspath(os.path.join(app.builder.outdir,
-                                        '_static',
-                                        'fancybox')
-                          )
+    if on_rtd:
+        base_path = os.path.join(app.builder.srcdir, '_static')
+    else:
+        base_path = os.path.join(app.builder.outdir, '_static')
+    path = os.path.abspath(os.path.join(base_path, 'fancybox'))
+
     if not os.path.exists(path):
         os.makedirs(path)
 
@@ -183,21 +173,21 @@ def copy_stylesheet(app, exception):
     for FILE in CSS_FILES:
         copyfile(
             os.path.join(os.path.dirname(__file__), FILE),
-            os.path.join(app.builder.outdir, '_static', FILE)
+            os.path.join(base_path, FILE)
         )
     app.info('done')
     app.info('Copying fancybox javascript... ', nonl=True)
     for FILE in JS_FILES:
         copyfile(
             os.path.join(os.path.dirname(__file__), FILE),
-            os.path.join(app.builder.outdir, '_static', FILE)
+            os.path.join(base_path, FILE)
         )
     app.info('done')
     app.info('Copying fancybox images... ', nonl=True)
     for FILE in IMG_FILES:
         copyfile(
             os.path.join(os.path.dirname(__file__), FILE),
-            os.path.join(app.builder.outdir, '_static', FILE)
+            os.path.join(base_path, FILE)
         )
     app.info('done')
 
@@ -233,4 +223,4 @@ def setup(app):
 
     app.connect('builder-inited', add_stylesheet)
     app.connect('builder-inited', add_javascript)
-    app.connect('build-finished', copy_stylesheet)
+    app.connect('builder-inited', copy_stylesheet)

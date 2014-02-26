@@ -3,7 +3,10 @@ Sphinx "fancybox" extension.
 Fancybox
 ========
 
-Fancybox is adaptation of `<http://fancybox.net/>`_ in version **1.3.4**.
+Fancybox is adaptation of the jQuery plugin `fancybox <http://fancyapps.com/fancybox>`_ in version **2.1.5*. Note that version
+Fancybox v2 and later are distributed under a 
+`Creative Commons Attribution-NonCommercial 3.0 <http://creativecommons.org/licenses/by-nc/3.0/>`_
+license. 
 
 Documentation: `<http://spinus.github.com/sphinxcontrib-fancybox/>`_
 
