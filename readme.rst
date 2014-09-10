@@ -3,6 +3,16 @@ Sphinx "fancybox" extension.
 Fancybox
 ========
 
+.. warning::
+
+    THIS PROJECT IS NOT MAINTAINED.
+    PLEASE LOOK AT ``sphinxcontrib-images``:
+
+    * https://pypi.python.org/pypi/sphinxcontrib-images
+
+    * https://github.com/spinus/sphinxcontrib-images
+
+
 Fancybox is adaptation of the jQuery plugin `fancybox <http://fancyapps.com/fancybox>`_ in version **2.1.5*. Note that version
 Fancybox v2 and later are distributed under a 
 `Creative Commons Attribution-NonCommercial 3.0 <http://creativecommons.org/licenses/by-nc/3.0/>`_
